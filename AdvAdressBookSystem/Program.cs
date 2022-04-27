@@ -16,8 +16,9 @@ namespace AdvAdressBookSystem
             do
             {
                 Console.WriteLine("1: Check Connection");
-                Console.WriteLine("2: Get All Details");
-                Console.WriteLine("3: For Exit");
+                Console.WriteLine("2: Add Contact");
+                Console.WriteLine("3: Edit Contact");
+                Console.WriteLine("4: For Exit");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -30,6 +31,24 @@ namespace AdvAdressBookSystem
 
                         break;
                     case 3:
+                        Details addressbook = new Details();
+                        Console.WriteLine("Enter a First Name for Edit Contact");
+                        string firstname = Console.ReadLine();
+                        addressbook.FirstName = firstname;
+                        Console.WriteLine("Edit Last Name");
+                        string lastname = Console.ReadLine();
+                        addressbook.LastName = lastname;
+                        Console.WriteLine("Edit Address");
+                        string address = Console.ReadLine();
+                        addressbook.Address = address;
+                        Console.WriteLine("Edit City");
+                        string city = Console.ReadLine();
+                        addressbook.City = city;
+                        addressBookConnection.EditContact(addressbook);
+                        Console.WriteLine("Contact is Edited");
+                        break;
+                      
+                    case 4:
                         Console.WriteLine("Exit");
                         break;
                     default:

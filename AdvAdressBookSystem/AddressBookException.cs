@@ -11,7 +11,7 @@ namespace AdvAdressBookSystem
         ExceptionType type;
         public enum ExceptionType
         {
-            Connection_Failed
+            Connection_Failed, Contact_Not_Add
         }
         public AddressBookException(ExceptionType type, string message) : base(message)
         {
