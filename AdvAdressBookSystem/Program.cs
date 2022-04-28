@@ -18,7 +18,8 @@ namespace AdvAdressBookSystem
                 Console.WriteLine("1: Check Connection");
                 Console.WriteLine("2: Add Contact");
                 Console.WriteLine("3: Edit Contact");
-                Console.WriteLine("4: For Exit");
+                Console.WriteLine("4: Delete Contact");
+                Console.WriteLine("5: For Exit");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -47,8 +48,14 @@ namespace AdvAdressBookSystem
                         addressBookConnection.EditContact(addressbook);
                         Console.WriteLine("Contact is Edited");
                         break;
-                      
                     case 4:
+                        Details delete = new Details();
+                        Console.WriteLine("Enter a First Name For Delete The Contact");
+                        string first_name = Console.ReadLine();
+                        delete.FirstName = first_name;
+                        addressBookConnection.DeleteContact(delete);
+                        break;
+                    case 5:
                         Console.WriteLine("Exit");
                         break;
                     default:
@@ -61,5 +68,6 @@ namespace AdvAdressBookSystem
         }
        
     }
+
 }
     

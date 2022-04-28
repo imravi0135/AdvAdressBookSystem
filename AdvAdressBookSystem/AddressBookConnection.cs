@@ -153,6 +153,29 @@ namespace AdvAdressBookSystem
                 return false;
             }
         }
+        public void DeleteContact(Details address)
+        {
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("dbo.spDeleteContact", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", address.FirstName);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Contact is Deleted");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
         
